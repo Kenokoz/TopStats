@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Cardo:ital@1&family=Open+Sans:wght@400;700&family=Raleway:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://img2.freepng.ru/20180428/vpq/kisspng-computer-icons-statistics-5ae44e23d52df7.9413577715249116518732.jpg"
+    />
+    <title>TOPStats</title>
+  </head>
+
+  <!-- Sprite -->
+  <svg style="display: none;">
+    <symbol id="facebook" viewBox="0 0 155.139 155.139">
+        <g>
+        <path d="M89.584,155.139V84.378h23.742l3.562-27.585H89.584V39.184
+    c0-7.984,2.208-13.425,13.67-13.425l14.595-0.006V1.08C115.325,0.752,106.661,0,96.577,0C75.52,0,61.104,12.853,61.104,36.452
+    v20.341H37.29v27.585h23.814v70.761H89.584z"/>
+        </g>
+    </symbol>
+    <symbol id="twitter" viewBox="0 0 512 512">
+        <g>
+    <path d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016
+      c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992
+      c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056
+      c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152
+      c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792
+      c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44
+      C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568
+      C480.224,136.96,497.728,118.496,512,97.248z"/>
+  </g>
+    </symbol>
+    <symbol id="linkedin" viewBox="0 0 510 510">
+        <g>
+            <path       d="M459,0H51C22.95,0,0,22.95,0,51v408c0,28.05,22.95,51,51,51h408c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z
+            M153,433.5H76.5V204H153V433.5z M114.75,160.65c-25.5,0-45.9-20.4-45.9-45.9s20.4-45.9,45.9-45.9s45.9,20.4,45.9,45.9
+            S140.25,160.65,114.75,160.65z M433.5,433.5H357V298.35c0-20.399-17.85-38.25-38.25-38.25s-38.25,17.851-38.25,38.25V433.5H204
+            V204h76.5v30.6c12.75-20.4,40.8-35.7,63.75-35.7c48.45,0,89.25,40.8,89.25,89.25V433.5z"/>
+        </g>
+    </symbol>
+    
+  </svg>
+
+  <body>
+    <header class="header">
+        <div class="header__inner">
+          <div class="logo">
+            <a class="header__link" href="#">
+              <img class="logo__img" src="Images/logoCS.png" />Top<span class="stats__span"
+                >Stats</span
+              >
+            </a>
+          </div>
+          <div class="nav">
+            <a class="nav__link" href="#">About</a>
+            <a class="nav__link" href="#">Games</a>
+            <a class="nav__link" href="#">Information</a>
+          </div>
+        </div>
+    </header>
+
+    <div class="intro">
+      <div class="container">
+        <h2 class="intro__suptitle">Welcome to TOP<span class="stats__span">Stats</span></h2>
+        <h1 class="intro__title">Get top player <span class="stats__span">stats</span></h1>
+        <form class="intro__search" action="/" method="POST">
+          <input
+            class="search__input"
+            type="search"
+            name
+            placeholder="Nickname"
+          />
+          <button class="search__btn" type="submit">GET Stats</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="container">
+        <div class="stats__suptitle">
+          <span class="stats__span">Stats</span> of ZywOo
+        </div>
+        <div class="stats__title">Last 10 matches:</div>
+        <div class="stats__items">
+            <div class="stats__card">
+              <div class="stats__img">
+                <img src="Images/players/ZywOo.png" class="player__img">
+              </div>
+              <div class="player__descr">
+                <div class="player__nick"><b>Nickname: </b>ZywOo</div>
+                <div class="player__nick"><b>Team: </b>Vitality</div>
+                <div class="player__nick"><b>Avg K/D: </b>1.28</div>
+                <div class="player__about">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi doloribus cupiditate enim minus quo.
+                </div>
+              </div>
+            </div>
+            <div class="stats__table">
+              <div class="stats__row stats__row-lost">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="lost__span">Lost</span></div>
+                <div class="stats__count">14/16</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="posit__span">21-2-10</span></div>
+              </div>
+              <div class="stats__row stats__row-won">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="won__span">Won</span></div>
+                <div class="stats__count">16/14</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="negat__span">18-2-21</span></div>
+              </div>
+              <div class="stats__row stats__row-won">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="won__span">Won</span></div>
+                <div class="stats__count">16/14</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="negat__span">18-2-21</span></div>
+              </div>
+              <div class="stats__row stats__row-won">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="won__span">Won</span></div>
+                <div class="stats__count">16/14</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="negat__span">18-2-21</span></div>
+              </div>
+              <div class="stats__row stats__row-lost">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="lost__span">Lost</span></div>
+                <div class="stats__count">14/16</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="posit__span">21-2-10</span></div>
+              </div>
+              <div class="stats__row stats__row-won">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="won__span">Won</span></div>
+                <div class="stats__count">16/14</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="negat__span">18-2-21</span></div>
+              </div>
+              <div class="stats__row stats__row-lost">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="lost__span">Lost</span></div>
+                <div class="stats__count">14/16</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="posit__span">21-2-10</span></div>
+              </div> <div class="stats__row stats__row-lost">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="lost__span">Lost</span></div>
+                <div class="stats__count">14/16</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="posit__span">21-2-10</span></div>
+              </div>
+              <div class="stats__row stats__row-won">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="won__span">Won</span></div>
+                <div class="stats__count">16/14</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="negat__span">18-2-21</span></div>
+              </div>
+              <div class="stats__row stats__row-won">
+                <div class="stats__date">Dec 2 2020</div>
+                <div class="stats__res"><span class="won__span">Won</span></div>
+                <div class="stats__count">16/14</div>
+                <div class="stats__map">Dust 2</div>
+                <div class="stats__kda"><span class="negat__span">18-2-21</span></div>
+              </div>
+            </div>
+            <div class="stats__select">
+              <div class="select__wrapper active">
+                <div class="select__title">Map</div>
+                <div class="wrapper__items">
+                  <div class="select__item">Dust 2</div>
+                  <div class="select__item">Mirage</div>
+                  <div class="select__item">Inferno</div>
+                  <div class="select__item">Train</div>
+                </div>
+              </div>
+              <div class="select__wrapper">
+                <div class="select__title">Result</div>
+                <div class="wrapper__items">
+                  <div class="select__item">All</div>
+                  <div class="select__item">Won</div>
+                  <div class="select__item">Lost</div>
+                </div>
+              </div>
+              <div class="select__wrapper">
+                <div class="select__title">K/A/D</div>
+                <div class="wrapper__items">
+                  <div class="select__item">Positive</div>
+                  <div class="select__item">Negative</div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">  
+      <div class="container">
+        <div class="footer__inner">
+          <div class="logo">
+            <a class="header__link" href="#">
+              <img class="logo__img" src="Images/logoCS.png" />Top<span class="stats__span"
+                >Stats</span>
+            </a>
+          </div>
+          <div class="footer__share">
+            <div class="footer__title">Share</div>
+            <div class="social__footer">
+              <a class="social__item" href="#" target="_blank">
+                  <svg class="social__icon">
+                      <use xlink:href="#facebook"></use>
+                  </svg>
+              </a>
+              <a class="social__item" href="#" target="_blank">
+                  <svg class="social__icon">
+                      <use xlink:href="#twitter"></use>
+                  </svg>
+              </a>
+              <a class="social__item" href="#" target="_blank">
+                  <svg class="social__icon">
+                      <use xlink:href="#linkedin"></use>
+                  </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div class="container">
+          <div class="copyright__text">
+              <div>Copyright © 2020 TOP<span class="stats__span">Stats</span> All Rights Reserved</div> 
+              <div>Made by Kenokoz</div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
