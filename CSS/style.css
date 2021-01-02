@@ -38,6 +38,22 @@ h1,h2,h3,h4,h5,h6{
     height: 70px;
 
     border-bottom: 1px solid #515369;
+    transition: all .3s ease-in-out;
+}
+
+.header__hide{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #212d3d ;
+    transform: translateY(-70px);
+}
+
+.header__show{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #212d3d ;
 }
 
 .header__inner{
@@ -52,6 +68,7 @@ h1,h2,h3,h4,h5,h6{
 .header__link{
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     font-size: 25px;
     font-weight: bold;
@@ -80,11 +97,11 @@ h1,h2,h3,h4,h5,h6{
 
 .nav__link{
     text-decoration: none;
-    margin-left: 35px;
+    margin-left: 55px;
     color: #fff;
+    cursor: pointer;
 
     transition: color .2s linear;
-    
 }
 
 .nav__link:after{
