@@ -114,43 +114,46 @@ h1,h2,h3,h4,h5,h6{
 .intro{
     display: flex;
     flex-direction: column;
-    text-align: center;
+    justify-content: center;
 
     height: 100vh;
-    padding: 170px 0;
 
     background: url("../Images/bg_intro.jpg") center no-repeat;
     background-size: cover;
 }
 
+.intro__inner{
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto; /*выравнивание блока по центру*/
+    text-align: center;
+}
+
 .intro__suptitle{
-    margin-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     font-family: 'Kaushan Script', cursive;
-    font-size: 35px;
+    font-size: 45px;
     color: #fff;
 }
 
 .intro__title{
     color: #fff;
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1; 
 }
 
-.intro__search{
-    margin-top: 30px;
-}
-
 .search__input{
-    width: 60%;
+    width: 100%;
     height: 40px;
     padding: 12px;
     border: #fff;
-    border: 1px solid #e7e7e7;
+    border: 3px solid #ffffff;
     border-radius: 5px;
     
+    margin: 70px 0;
+
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     color: #333;
@@ -161,13 +164,14 @@ h1,h2,h3,h4,h5,h6{
     color: rgb(173, 167, 167);
 }
 
-.search__input:focus{
+.search__input:focus{    
     outline: 0;
+    border-color: #ce9d41;
 }
 
 .search__btn{
     display: block;
-    margin: 50px auto 0;
+    margin: 0 auto 0;
     width: 200px;
     height: 40px;
     padding: 12px 50px;
@@ -192,20 +196,24 @@ h1,h2,h3,h4,h5,h6{
 /* Stats */
 
 .stats{
-    display: flex;
-    flex-direction: column;
+    height: 820px;
+
+    background: url("../Images/bg_players.jpg") center no-repeat;
+    background-size: cover;
+
+    padding-top: 70px;
+}
+
+.stats__header{
+    width: 100%;
     text-align: center;
 
-    height: 100vh;
-    padding-top: 40px;
-
-    background: url("../Images/bg_stats.jpg") center no-repeat;
-    background-size: cover;
+    margin-bottom: 70px;
 }
 
 .stats__suptitle{
     color: black;
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 700;
     font-family: 'Kaushan Script', cursive;
     line-height: 1; 
@@ -214,40 +222,45 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .stats__title{
-    font-size: 35px;
+    font-size: 45px;
     font-weight: 700;
     line-height: 1;
 }
 
+
 .stats__items{
     display: flex;
     justify-content: space-between;
+    text-align: center;
     height: 440px;
 
-    margin: 40px 0;
+
 }
 
 /* Card-player */
 
-.stats__card{
-    width: 212px;
-    background-color: #212d3d;
-    height: auto;
+.player__card{
+    height: 440px;
+    position: relative;
+    width: 210px;
+    background: linear-gradient(to bottom, #ce9d41 0%, #212d3d 55%);
     
     border: 3px solid #ce9d41;
     border-radius: 10px;
 }
 
-.stats__img{
-    background-color: #fff;
+.player__img{
+    width: 204px;
+    height: 220px;
+    background: #fff;
     border-radius: 7px;
-    
 }
 
-.player__img{
+.player__photo{
     height: 220px;
-    width: 204px;
+    width: 210px;
 }
+
 
 .player__descr{
     width: 210px;
@@ -262,6 +275,69 @@ h1,h2,h3,h4,h5,h6{
 .player__about{
     margin-top: 7px;
 }
+
+/* Players */
+
+.players{
+    height: 820px;
+    padding-top: 70px;
+
+    background: url(https://krot.info/uploads/posts/2020-01/1579210855_44-100.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.players__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+
+    font-size: 15px;
+    color: #fff;
+}
+
+.player__stat{
+    width: 70px;
+    margin: 10px 5px 5px 120px;
+
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 2px;
+
+    background: #ce9d41;
+    transition: background .2s linear, color .2s linear;
+}
+
+.player__stat:hover{
+    color: #ce9d41;
+    background: #fff;
+}
+
+.players__btn{
+    font-size: 0;
+    color:transparent;
+}
+
+.players__btn:after{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    
+    border-top: 3px solid rgb(12, 11, 11);
+    border-left: 3px solid rgb(12, 12, 12);
+}
+
+.players__btn--prev{
+    transform: rotate(-45deg);
+}
+
+.players__btn--next{
+    transform: rotate(135deg);
+}
+
+
 
 /* Table */
 
@@ -278,7 +354,7 @@ h1,h2,h3,h4,h5,h6{
 
     border: 3px solid black;
     border-radius: 5px;
-    background-color: rgb(209, 202, 202);
+    background-color: rgb(233, 233, 233);
 }
 
 .stats__row-lost{
@@ -313,9 +389,10 @@ h1,h2,h3,h4,h5,h6{
     position: relative;
     background-color: #212d3d;
 
-    font-size: 25px;
+    font-size: 22px;
     color: #fff;
     
+    padding: 3px 0;
     border-radius: 5px;
     border: 2px solid #ce9d41;
 }
@@ -351,7 +428,7 @@ h1,h2,h3,h4,h5,h6{
 
     font-size: 15px;
     font-style: italic;
-    color: #fff;
+    color: black;
 
     cursor: pointer;
 }
@@ -363,7 +440,7 @@ h1,h2,h3,h4,h5,h6{
     border: 2px solid  black;
     border-radius: 5px;
 
-    background-color: rgb(209, 202, 202);
+    background-color: rgb(233, 233, 233);
 
 }
 
@@ -414,7 +491,7 @@ h1,h2,h3,h4,h5,h6{
     height: 20px;
     margin-right: 10px;
     
-    fill: rgb(209, 202, 202);
+    fill: #fff;
 
     transition: fill .1s linear;
 }
@@ -434,4 +511,25 @@ h1,h2,h3,h4,h5,h6{
     text-align: center;
     font-size: 15px;
     color: rgb(209, 202, 202);
+}
+
+
+
+/* Teams */
+
+.teams{
+    height: 150px;
+    background:#212d3d;
+}
+
+.team__img{
+    margin: 15px 40px 0;
+    height: 120px;
+}
+
+.logos{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
 }
