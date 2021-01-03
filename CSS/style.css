@@ -296,6 +296,7 @@ h1,h2,h3,h4,h5,h6{
 /* Players */
 
 .players{
+    display: flex;
     height: 820px;
     padding-top: 70px;
 
@@ -303,10 +304,22 @@ h1,h2,h3,h4,h5,h6{
     background-size: cover;
 }
 
-.players__inner{
+.players__wrapper{
+    overflow: hidden;
+}
+
+.players__slide{
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
+}
+
+.players__inner{
+    width: 300%;
+    display: flex;
     align-items:center;
+    transition: 0.5s all ease;
 
     font-size: 15px;
     color: #fff;
@@ -341,20 +354,82 @@ h1,h2,h3,h4,h5,h6{
     display: block;
     width: 20px;
     height: 20px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
     
     border-top: 3px solid rgb(12, 11, 11);
     border-left: 3px solid rgb(12, 12, 12);
 }
 
-.players__btn--prev{
-    transform: rotate(-45deg);
+.players__btn-prev{
+    transform: translateX(-220px) translateY(-200px) rotate(-45deg);
 }
 
-.players__btn--next{
-    transform: rotate(135deg);
+.players__btn-next{
+    transform: translateX(220px) translateY(180px) rotate(135deg);
 }
 
 
+/* Dots */
+
+.slider__dot-wrapper {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    transform: translateX(560px) translateY(50px);
+}
+
+.slider__dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #444;
+    margin: 5px;
+    box-shadow: 0px 0px 6px 1px black;
+    cursor: pointer;
+}
+
+.slider__dot-active{
+    background: #ce9d41;
+}
+
+.slider__dot:hover {
+    border: 2px solid #ce9d41;
+}
+
+
+/* Teams */
+
+.teams{
+    height: 150px;
+    background:#212d3d;
+}
+
+.team__img{
+    margin: 15px 40px 0;
+    height: 120px;
+}
+
+.teams__wrapper{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+
+}
+
+.teams__inner{
+    width: 300%;
+    display: flex;
+    transition: all 0.5s ease;
+
+}
+
+.teams__slide{
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
 
 /* Table */
 
@@ -532,21 +607,3 @@ h1,h2,h3,h4,h5,h6{
 
 
 
-/* Teams */
-
-.teams{
-    height: 150px;
-    background:#212d3d;
-}
-
-.team__img{
-    margin: 15px 40px 0;
-    height: 120px;
-}
-
-.logos{
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 40px;
-}
