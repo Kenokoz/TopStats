@@ -63,6 +63,47 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     navScroll();
 
+    // Get stats
+    const players = ["ZywOo", "s1mlpe", "device", "NiKo", "ropz", "electronic", "syrsoN", "mantuu",
+     "valde", "stavn", "dupreeh", "Magisk", "XANTARES", "Brollan", "huNter-"];
+    const search = document.querySelector(".search__btn");
+    const nickInput = document.querySelector(".search__input");
+    const searchForm = document.querySelector(".search");
+
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        window.scrollTo({
+            top: 1939,
+            behavior: "smooth"
+        }); 
+        event.target.reset();
+
+        players.forEach((player, i) => {
+            // if (player.includes(nickInput.value)) {
+            //     document.querySelector(".player__card").remove();
+            //     const newPlayerCard = document.createElement("div");
+            //     newPlayerCard.classList.add("player__card");
+            //     newPlayerCard.innerHTML = `
+            //         <div class="player__img">
+            //             <img src="Images/players/${i + 1}.png" class="player__photo">
+            //         </div>
+            //         <div class="player__descr">
+            //             <div><b>Nickname: </b>${player}</div>
+            //             <div><b>Team: </b>Vitality</div>
+            //             <div><b>Avg K/D: </b>1.28</div>
+            //             <div class="player__about">
+            //             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi doloribus cupiditate enim minus quo.
+            //         </div>
+            //     `;
+            //     document.querySelector(".stats__items").append(newPlayerCard);
+            // }
+        });
+        console.log(players[0]);
+        console.log(nickInput.value);
+    });
+    
+    
+
     //Slider
     const slides = document.querySelectorAll(".players__slide");
     const next = document.querySelector(".players__btn-next");
