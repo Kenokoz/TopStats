@@ -38,25 +38,34 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function navScroll() {
         const navElements = document.querySelectorAll(".nav__link", ".header__link");
-        const position = [0, 970, 1939];
 
         navElements.forEach((elem, i) => {
             elem.addEventListener("click", () => {
-                if (elem === navElements[0] || elem === navElements[3]) {
-                    window.scrollTo({
-                        top: position[i],
-                        behavior: "smooth"
-                    });  
-                }else {
+                if (elem === navElements[1]) {
                     window.removeEventListener("scroll", showHeaderByScroll);
-                    window.scrollTo({
-                        top: position[i],
-                        behavior: "smooth"
-                    });   
+                    document.querySelector(".players").scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
                     hideHeader();
                     setTimeout(() => {
                         window.addEventListener("scroll", showHeaderByScroll);
-                    }, 550);
+                    }, 650);
+                }else if (elem === navElements[2]){
+                    window.removeEventListener("scroll", showHeaderByScroll);
+                    document.querySelector(".stats").scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
+                    hideHeader();
+                    setTimeout(() => {
+                        window.addEventListener("scroll", showHeaderByScroll);
+                    }, 650);
+                }else {
+                    document.querySelector(".intro").scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
                 }
             });
         });
@@ -64,42 +73,50 @@ window.addEventListener("DOMContentLoaded", () => {
     navScroll();
 
     // Get stats
-    const players = ["ZywOo", "s1mlpe", "device", "NiKo", "ropz", "electronic", "syrsoN", "mantuu",
+    const players = ["ZywOo", "s1mple", "device", "NiKo", "ropz", "electronic", "syrsoN", "mantuu",
      "valde", "stavn", "dupreeh", "Magisk", "XANTARES", "Brollan", "huNter-"];
-    const search = document.querySelector(".search__btn");
     const nickInput = document.querySelector(".search__input");
     const searchForm = document.querySelector(".search");
 
     searchForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        window.scrollTo({
-            top: 1939,
-            behavior: "smooth"
-        }); 
-        event.target.reset();
 
         players.forEach((player, i) => {
-            // if (player.includes(nickInput.value)) {
-            //     document.querySelector(".player__card").remove();
-            //     const newPlayerCard = document.createElement("div");
-            //     newPlayerCard.classList.add("player__card");
-            //     newPlayerCard.innerHTML = `
-            //         <div class="player__img">
-            //             <img src="Images/players/${i + 1}.png" class="player__photo">
-            //         </div>
-            //         <div class="player__descr">
-            //             <div><b>Nickname: </b>${player}</div>
-            //             <div><b>Team: </b>Vitality</div>
-            //             <div><b>Avg K/D: </b>1.28</div>
-            //             <div class="player__about">
-            //             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi doloribus cupiditate enim minus quo.
-            //         </div>
-            //     `;
-            //     document.querySelector(".stats__items").append(newPlayerCard);
-            // }
+            if (player.toLowerCase() === nickInput.value.toLowerCase()) {
+                document.querySelector(".stats .player__card").remove();
+
+                document.querySelector(".stats .stats__suptitle").innerHTML = 
+                    `<span class="stats__span">Stats</span> of ${player}`;
+
+                const newPlayerCard = document.createElement("div");
+                newPlayerCard.classList.add("player__card");
+                newPlayerCard.innerHTML = `
+                    <div class="player__img">
+                        <img src="Images/players/${i + 1}.png" class="player__photo">
+                    </div>
+                    <div class="player__descr">
+                        <div><b>Nickname: </b>${player}</div>
+                        <div><b>Team: </b>Vitality</div>
+                        <div><b>Avg K/D: </b>1.28</div>
+                        <div class="player__about">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi doloribus cupiditate enim minus quo.
+                    </div>
+                `;
+                document.querySelector(".stats__items").insertAdjacentElement("afterbegin", newPlayerCard);
+                
+                document.querySelector(".stats").scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+                
+                event.target.reset();
+            }
+            else {
+                // nickInput.value = "";
+                
+                // nickInput.placeholder = "Player is not found";
+            }
         });
-        console.log(players[0]);
-        console.log(nickInput.value);
     });
     
     
