@@ -100,8 +100,10 @@ window.addEventListener("DOMContentLoaded", () => {
                     <div><b>Nickname: </b>${this.nick}</div>
                     <div><b>Team: </b>${this.team}</div>
                     <div><b>Avg K/D: </b>1.28</div>
-                    <div class="player__about">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi doloribus cupiditate enim minus quo.
+                    <p class="player__about">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi doloribus cupiditate.
+                    </p>
+                    <div class="player__stat">Stats</div>
                 </div>
             `;
             return newPlayerCard;
@@ -112,9 +114,9 @@ window.addEventListener("DOMContentLoaded", () => {
         let numOfSlide = 0;
         let count = 0    
 
-        players.forEach((player, position) => {
+        players.forEach((nick, position) => {
             count++;
-            const card = new PlayerCard(position + 1, player, teams[position]).render();
+            const card = new PlayerCard(position + 1, nick, teams[position]).render();
             document.querySelectorAll(".players__slide")[numOfSlide].append(card);
 
             if (count == 5) {
@@ -128,6 +130,22 @@ window.addEventListener("DOMContentLoaded", () => {
     
     // Button Get Stats
 
+    function renderCardByBtn(pos, nick) {
+        document.querySelector(".stats .player__card").remove();
+
+        document.querySelector(".stats .stats__suptitle").innerHTML = 
+            `<span class="stats__span">Stats</span> of ${nick}`;
+
+        const card = new PlayerCard(pos, nick, teams[pos]).render();
+        document.querySelector(".stats__items").insertAdjacentElement("afterbegin", card);
+        document.querySelector(".stats .player__stat").remove();
+        
+        document.querySelector(".stats").scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+    }
+
     searchForm.addEventListener("submit", (event) => {
         event.preventDefault();
         let isFound = false;
@@ -135,22 +153,10 @@ window.addEventListener("DOMContentLoaded", () => {
         if (playerError.style.opacity == 1) {
             playerError.style.opacity = 0;
         }
-        players.forEach((player, i) => {
-            if (player.toLowerCase() === nickInput.value.toLowerCase()) {
-                
-                document.querySelector(".stats .player__card").remove();
+        players.forEach((nick, pos) => {
+            if (nick.toLowerCase() === nickInput.value.toLowerCase()) {
+                renderCardByBtn(pos + 1, nick);
 
-                document.querySelector(".stats .stats__suptitle").innerHTML = 
-                    `<span class="stats__span">Stats</span> of ${player}`;
-
-                const card = new PlayerCard(i + 1, player, teams[i]).render();
-                document.querySelector(".stats__items").insertAdjacentElement("afterbegin", card);
-                
-                document.querySelector(".stats").scrollIntoView({
-                    behavior:"smooth",
-                    block:"start"
-                });
-                
                 isFound = true;
                 event.target.reset();
             }
@@ -159,6 +165,19 @@ window.addEventListener("DOMContentLoaded", () => {
         if (!isFound) {
             playerError.style.opacity = 1;    
         }
+    });
+
+    // Button Stats
+
+    const statsButtons = document.querySelectorAll(".players .player__stat");
+
+    statsButtons.forEach(btn => {
+        const pos = +btn.parentElement.innerText.substring(10, 12) - 1;
+        btn.addEventListener("click", () => {
+            players.forEach(nick => {
+                renderCardByBtn(pos + 1, nick);
+            });
+        });
     });
 
     //Slider
@@ -229,5 +248,4 @@ window.addEventListener("DOMContentLoaded", () => {
             addActiveToSlide();
         });
     });
-
 });
