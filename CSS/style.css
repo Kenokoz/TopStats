@@ -159,6 +159,13 @@ h1,h2,h3,h4,h5,h6{
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1; 
+    margin-bottom: 55px;
+}
+
+.search__error{
+    opacity: 0;
+    font-size: 20px;
+    color: rgb(211, 45, 45);
 }
 
 .search__input{
@@ -169,7 +176,7 @@ h1,h2,h3,h4,h5,h6{
     border: 3px solid #ffffff;
     border-radius: 5px;
     
-    margin: 70px 0;
+    margin: 10px 0 70px;
 
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
