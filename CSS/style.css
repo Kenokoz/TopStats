@@ -235,6 +235,10 @@ h1,h2,h3,h4,h5,h6{
     margin-bottom: 70px;
 }
 
+.stats__header-table {
+    margin-bottom: 25px;
+}
+
 .stats__suptitle{
     color: black;
     font-size: 35px;
@@ -251,6 +255,38 @@ h1,h2,h3,h4,h5,h6{
     line-height: 1;
 }
 
+.search-stats {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.search__error-stats {
+    margin-bottom: 5px;
+}
+
+.search__input-stats {
+    width: 425px;
+    margin: 0;
+    height: 30px;
+}
+
+.search__btn-stats {
+    display:inline;
+    width: 150px;
+    height: 30px;
+    margin-left: 20px;
+    font-size: 13px;
+
+    padding: 0;
+        
+    background-color: #212d3d;
+}
+
+.search__btn-stats:hover {
+    color: #ce9d41;
+    background-color: #212d3d;
+}
 
 .stats__items{
     display: flex;
@@ -499,9 +535,27 @@ h1,h2,h3,h4,h5,h6{
     padding: 3px 0;
     border-radius: 5px;
     border: 2px solid #ce9d41;
+
+    cursor: pointer;
+    transition: color 0.1s linear, border 0.1s linear
 }
 
-.select__title:after{
+.select__title:hover {
+    color: #ce9d41;
+}
+
+.select__title:hover 
+.select__arrow:after{
+    border-top: 2px solid #ce9d41;
+    border-right: 2px solid #ce9d41;
+}
+
+.select__arrow{
+    font-size: 0;
+    color:transparent;
+}
+
+.select__arrow:after{
     content: "";
     display: block;
     width: 12px;
@@ -549,13 +603,13 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-.select__wrapper.active       /*для актив должны показывать контент*/
+.select__wrapper.active
 .wrapper__items{
     display: block;
 }
 
 .select__wrapper.active
-.select__title:after{
+.select__arrow:after{
     transform: translateY(-50%) rotate(-45deg);
     margin-top: 5px;
 }

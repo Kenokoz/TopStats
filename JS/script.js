@@ -77,9 +77,9 @@ window.addEventListener("DOMContentLoaded", () => {
     const players = ["ZywOo", "s1mple", "device", "NiKo", "ropz", "electronic", "syrsoN", "mantuu",
      "valde", "stavn", "dupreeh", "Magisk", "XANTARES", "Brollan", "huNter-"];
     const teams = ["Vitality", "Natus Vincere", "Astralis", "FaZe", "Mousesports", "Natus Vincere", "BIG", "OG", "Heroic", "OG", "Astralis", "Astralis", "BIG", "Fnatic", "G2"];
-    const nickInput = document.querySelector(".search__input");
-    const searchForm = document.querySelector(".search");
-    const playerError = document.querySelector(".search__error");
+    const nickInput = document.querySelectorAll(".search__input");
+    const searchForm = document.querySelectorAll(".search");
+    const playerError = document.querySelectorAll(".search__error");
     
     class PlayerCard {
         constructor (position, nick, team) {
@@ -130,7 +130,7 @@ window.addEventListener("DOMContentLoaded", () => {
     
     // Button Get Stats
 
-    function renderCardByBtn(pos, nick) {
+    function renderCardByBtn(pos, nick, targetBtn) {
         document.querySelector(".stats .player__card").remove();
 
         document.querySelector(".stats .stats__suptitle").innerHTML = 
@@ -140,32 +140,44 @@ window.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".stats__items").insertAdjacentElement("afterbegin", card);
         document.querySelector(".stats .player__stat").remove();
         
-        document.querySelector(".stats").scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+        if (!targetBtn.classList.contains("search-stats")) {
+            document.querySelector(".stats").scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+        }
     }
 
-    searchForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        let isFound = false;
+    searchForm.forEach(form => {
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let isFound = false;
+    
+            playerError.forEach(er => {
+                if (er.style.opacity == 1) {
+                    er.style.opacity = 0;
+                }
+            })
+            
+            players.forEach((nick, pos) => {
+                nickInput.forEach(nickInput => {
+                    if (nick.toLowerCase() === nickInput.value.toLowerCase()) {
+                        renderCardByBtn(pos + 1, nick, event.target);
 
-        if (playerError.style.opacity == 1) {
-            playerError.style.opacity = 0;
-        }
-        players.forEach((nick, pos) => {
-            if (nick.toLowerCase() === nickInput.value.toLowerCase()) {
-                renderCardByBtn(pos + 1, nick);
-
-                isFound = true;
-                event.target.reset();
+                        isFound = true;
+                        event.target.reset();
+                    }
+                })
+            });
+    
+            if (!isFound && event.target.classList.contains("search-stats")) {
+                playerError[1].style.opacity = 1;    
+            } else if (!isFound) {
+                playerError[0].style.opacity = 1;
             }
         });
-
-        if (!isFound) {
-            playerError.style.opacity = 1;    
-        }
-    });
+    })
+    
 
     // Button Stats
 
@@ -246,6 +258,20 @@ window.addEventListener("DOMContentLoaded", () => {
             offset = +width.slice(0, width.length - 2) * (slideIndex);
             moveSlide();
             addActiveToSlide();
+        });
+    });
+
+    //Select
+
+    const wrappers = document.querySelectorAll(".select__wrapper");
+
+    wrappers.forEach(wrapper => {
+        wrapper.addEventListener("click", () => {
+            if (wrapper.classList.contains("active")) {
+                wrapper.classList.remove("active");
+            } else {
+                wrapper.classList.add("active");
+            }
         });
     });
 });
