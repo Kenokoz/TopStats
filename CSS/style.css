@@ -482,8 +482,6 @@ h1,h2,h3,h4,h5,h6{
 /* Table */
 
 .stats__row{
-    display: flex;
-    justify-content: space-between;
     margin: 0 auto 4px;
     padding: 5px 10px;
     width: 600px;
@@ -497,23 +495,43 @@ h1,h2,h3,h4,h5,h6{
     background-color: rgb(233, 233, 233);
 }
 
+.stats__inner {
+    display: flex;    
+}
+
+.stats__date{
+    width: 150px;   
+}
+
+.stats__res{
+    width: 100px;
+}
+
+.stats__score{
+    width: 120px;
+}
+
+.stats__map{
+    width: 125px;
+}
+
 .stats__row-lost{
     border-color: red;
 }
 
 .lost__span, .negat__span{
-    background-color: red;
+    color: red;
     padding: 2px 7px;
 
     border-radius: 3px;
 }
 
 .stats__row-won{
-    border-color: rgb(3, 196, 3);
+    border-color: rgb(29, 199, 29);
 }
 
 .won__span, .posit__span{
-    background-color: rgb(3, 196, 3);
+    color: rgb(18, 124, 18);
     padding: 2px 7px;
 
     border-radius: 3px;
