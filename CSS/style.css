@@ -632,6 +632,17 @@ h1,h2,h3,h4,h5,h6{
     margin-top: 5px;
 }
 
+.select__reset {
+    font-size: 18px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color .1s linear;
+}
+
+.select__reset:hover {
+    color: #ce9d41;
+}
+
 /* Maps */
 
 .footer{
