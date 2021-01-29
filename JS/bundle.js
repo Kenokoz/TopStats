@@ -128,7 +128,6 @@ function players() {
                     <div><b>Position: </b>${this.position}</div>
                     <div><b>Nickname: </b>${this.nick}</div>
                     <div><b>Team: </b>${this.team}</div>
-                    <div><b>Avg K/D: </b>1.28</div>
                     <p class="player__about">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi doloribus cupiditate.
                     </p>
@@ -327,6 +326,9 @@ function select() {
                         case 1:
                             showSelectedRowsByRes();
                             break;
+                        default:
+                            showSelectedRowsByKda();
+                            break;
                     }
                 }
             } else {
@@ -335,12 +337,10 @@ function select() {
         });
     });
 
-    function showSelectedRowsByMap() {
-        const mapsOfRow = document.querySelectorAll(".stats__map");
-        const mapTitle = document.querySelectorAll(".select__title")[0].innerText;
-        mapsOfRow.forEach(map => {
-            const row = map.parentElement.parentElement;
-            if (!mapTitle.includes(map.innerText) && !mapTitle.includes("All")) {
+    function selectRows(rows, title) {
+        rows.forEach(item => {
+            const row = item.parentElement.parentElement;
+            if (!title.includes(item.innerText) && !title.includes("All")) {
                 row.style.display = "none";
             } else {
                 row.style.display = "block";
@@ -348,17 +348,44 @@ function select() {
         });
     }
 
+    function showSelectedRowsByMap() {
+        const mapsOfRow = document.querySelectorAll(".stats__map");
+        const mapTitle = document.querySelectorAll(".select__title")[0].innerText;
+
+        selectRows(mapsOfRow, mapTitle);
+    }
+
     function showSelectedRowsByRes() {
         const resultsOfRow = document.querySelectorAll(".stats__res");
         const resultTitle = document.querySelectorAll(".select__title")[1].innerText;
-        resultsOfRow.forEach(res => {
-            const row = res.parentElement.parentElement;
+        
+        selectRows(resultsOfRow, resultTitle);
+    }
 
-            if (!resultTitle.includes(res.innerText) && !resultTitle.includes("All")) {
-                row.style.display = "none";
+    function showSelectedRowsByKda() {
+        const kdasOfRow = document.querySelectorAll(".stats__kda");
+        const kdaTitle = document.querySelectorAll(".select__title")[2].innerText;
+        kdasOfRow.forEach(kda => {
+            const row = kda.parentElement.parentElement;
+            const kdaText = kda.innerText.split("-");
+            const kills = +kdaText[0];
+            const deaths = +kdaText[2];
+            const typeOfKda = kills / deaths;
+
+            if (kdaTitle.includes("Positive")) {
+                if (typeOfKda < 1 && !kdaTitle.includes("All")) {
+                    row.style.display = "none";
+                } else {
+                    row.style.display = "block";
+                } 
             } else {
-                row.style.display = "block";
+                if (typeOfKda >= 1 && !kdaTitle.includes("All")) {
+                    row.style.display = "none";
+                } else {
+                    row.style.display = "block";
+                }
             }
+            
         });
     }
 

@@ -25,7 +25,6 @@ function players() {
                     <div><b>Position: </b>${this.position}</div>
                     <div><b>Nickname: </b>${this.nick}</div>
                     <div><b>Team: </b>${this.team}</div>
-                    <div><b>Avg K/D: </b>1.28</div>
                     <p class="player__about">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi doloribus cupiditate.
                     </p>
