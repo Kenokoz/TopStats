@@ -6,6 +6,7 @@ function select() {
             if (wrapper.classList.contains("active")) {
                 wrapper.classList.remove("active");
                 if (e.target.classList.contains("select__item")) {
+                    resetTitleOfSelect();
                     wrapper.querySelector(".select__title").innerHTML =
                         e.target.innerText + arrowElem;
 
@@ -13,7 +14,6 @@ function select() {
                         case 0:
                             showSelectedRowsByMap();
                             break;
-
                         case 1:
                             showSelectedRowsByRes();
                             break;
@@ -82,15 +82,19 @@ function select() {
 
     // Reset
 
-    const reset = document.querySelector(".select__reset");
-    const selectTitles = document.querySelectorAll(".select__title");
-    reset.addEventListener("click", () => {
+    function resetTitleOfSelect() {
+        const selectTitles = document.querySelectorAll(".select__title");
         const namesOfTitle = ["Map", "Result", "K/A/D"];
-        const rows = document.querySelectorAll(".stats__row");
 
         selectTitles.forEach((title, i) => {
             title.innerHTML = namesOfTitle[i] + arrowElem;
         });
+    }
+
+    const reset = document.querySelector(".select__reset");
+    const rows = document.querySelectorAll(".stats__row");
+    reset.addEventListener("click", () => {
+        resetTitleOfSelect();
         wrappers.forEach(wrapper => {
             wrapper.classList.remove("active");
         });
@@ -99,6 +103,7 @@ function select() {
             row.style.display = "block";
         });
     });
+    
 }
 
 export default select;
