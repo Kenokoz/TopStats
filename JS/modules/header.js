@@ -35,6 +35,17 @@ function header() {
     };
     window.addEventListener("scroll", showHeaderByScroll);
 
+    function removeSrcollEvent(selector) {
+        window.removeEventListener("scroll", showHeaderByScroll);
+        document.querySelector(selector).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+        hideHeader();
+        setTimeout(() => {
+            window.addEventListener("scroll", showHeaderByScroll);
+        }, 650);
+    }
 
     function navScroll() {
         const navElements = document.querySelectorAll(".nav__link", ".header__link");
@@ -42,25 +53,10 @@ function header() {
         navElements.forEach((elem, i) => {
             elem.addEventListener("click", () => {
                 if (elem === navElements[1]) {
-                    window.removeEventListener("scroll", showHeaderByScroll);
-                    document.querySelector(".players").scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                    hideHeader();
-                    setTimeout(() => {
-                        window.addEventListener("scroll", showHeaderByScroll);
-                    }, 650);
+                    removeSrcollEvent(".players");
+                    
                 } else if (elem === navElements[2]) {
-                    window.removeEventListener("scroll", showHeaderByScroll);
-                    document.querySelector(".stats").scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                    hideHeader();
-                    setTimeout(() => {
-                        window.addEventListener("scroll", showHeaderByScroll);
-                    }, 650);
+                    removeSrcollEvent(".stats");
                 } else {
                     document.querySelector(".intro").scrollIntoView({
                         behavior: "smooth",
